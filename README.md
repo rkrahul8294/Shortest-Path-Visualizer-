@@ -26,11 +26,12 @@ This project helps users understand how pathfinding algorithms work step by step
 ## 📂 Project Structure
 
 
-├── index.html # Main entry page
-├── login.html # Login page
-├── dashboard.html # Dashboard interface
-├── graph.js # Graph & algorithm logic
-├── style.css # Styling
+├── index.html # Application entry point
+├── login.html # User authentication page
+├── dashboard.html # Visualization dashboard
+├── graph.js # Shortest path algorithms logic
+├── style.css # Application styling
+└── README.md # Documentation
 
 
 ---
