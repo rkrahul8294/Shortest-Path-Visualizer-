@@ -1,0 +1,84 @@
+/* Global */
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Poppins',sans-serif; transition:0.3s all; }
+
+/* ===== Login Page ===== */
+body.login {
+    height:100vh; display:flex; justify-content:center; align-items:center;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+#loginContainer {
+    width:100%; max-width:420px; padding:50px;
+    border-radius:20px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 8px 30px rgba(0,0,0,0.6);
+    text-align:center; color:white;
+    animation: floatUp 0.8s ease-out;
+}
+@keyframes floatUp { from{transform:translateY(40px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+#loginContainer h1 { margin-bottom:25px; font-size:2rem; }
+#loginContainer input {
+    width:100%; padding:14px; margin:12px 0; border-radius:12px; border:none;
+    font-size:1rem; outline:none;
+}
+#loginContainer button {
+    width:100%; padding:14px; border:none; border-radius:12px; background:#2575fc;
+    color:white; font-weight:bold; cursor:pointer; font-size:1rem; margin-top:10px;
+}
+#loginContainer button:hover { background:#1a5bcc; transform:translateY(-2px); }
+#loginError { color:#ff4d4d; margin-top:10px; font-weight:bold; }
+.links { margin-top:20px; }
+.links a { color:#70d6ff; margin:0 10px; text-decoration:none; font-weight:600; }
+.links a:hover { color:#fff; }
+
+/* ===== Dashboard Page ===== */
+body.dashboard { background: linear-gradient(135deg,#141e30,#243b55); min-height:100vh; color:white; }
+
+.header {
+    display:flex; justify-content:space-between; align-items:center; padding:20px 30px;
+    background: rgba(255,255,255,0.1); border-radius:15px; margin:20px;
+    backdrop-filter: blur(12px); border:1px solid rgba(255,255,255,0.2);
+}
+.header h2 { font-size:2rem; }
+.header .user a { color:#70d6ff; margin:0 8px; text-decoration:none; font-size:1.2rem; }
+
+.container { max-width:1200px; margin:0 auto; padding:0 20px; }
+.card {
+    background:rgba(255,255,255,0.1); backdrop-filter:blur(12px);
+    padding:25px; border-radius:20px; border:1px solid rgba(255,255,255,0.3);
+    margin-bottom:25px; transition:0.3s all; transform: translateY(0);
+}
+.card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 15px 45px rgba(37,117,252,0.6); }
+
+.card h3 { margin-bottom:15px; color:#70d6ff; font-size:1.4rem; }
+
+.controls { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; align-items:center; }
+input, select {
+    padding:10px 15px; border-radius:12px; border:none; outline:none; font-size:1rem;
+}
+button.primary {
+    background:#2575fc; color:white; border:none; border-radius:12px; padding:12px 20px;
+    font-weight:bold; cursor:pointer;
+}
+button.primary:hover { background:#1a5bcc; }
+button.secondary {
+    background:#f44336; color:white; border:none; border-radius:12px; padding:12px 20px;
+    font-weight:bold; cursor:pointer;
+}
+button.secondary:hover { background:#c62828; }
+
+#result {
+    margin-top:15px; font-weight:bold; font-size:1.2rem;
+    padding:12px; border-radius:15px;
+    background: rgba(255,255,255,0.2); backdrop-filter:blur(10px);
+    color:#fff; border:1px solid rgba(255,255,255,0.3);
+}
+
+#mynetwork {
+    width:100%; height:520px; border-radius:20px;
+    background:#1e1e2f; border:2px solid rgba(255,255,255,0.3);
+    margin-top:20px;
+}

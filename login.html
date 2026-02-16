@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🔎 Path Finder - Secure Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body.login {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1c2b2d, #3a6073);
+            overflow: hidden;
+        }
+
+        #waveCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #loginContainer {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 60px;   /* bigger padding */
+            border-radius: 20px;
+            text-align: center;
+            width: 500px;    /* bigger width */
+            box-shadow: 0px 12px 30px rgba(0,0,0,0.4);
+        }
+
+        #loginContainer h1 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 32px;  /* bigger heading */
+        }
+
+        #loginContainer input {
+            width: 100%;
+            padding: 16px;
+            margin: 14px 0;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            font-size: 18px; /* bigger font */
+        }
+
+        #loginContainer button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            background: #2575fc;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 14px;
+        }
+
+        #loginContainer button:hover {
+            background: #1a5cd8;
+        }
+
+        #loginError {
+            color: #ff4d4d;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .links {
+            margin-top: 25px;
+        }
+
+        .links a {
+            display: block;
+            color: white;
+            margin: 6px 0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="login">
+
+<!-- Wave Background -->
+<canvas id="waveCanvas"></canvas>
+
+<div id="loginContainer">
+    <h1>🔎 Path Finder Login</h1>
+
+    <input type="email" id="email" placeholder="Enter your email">
+    <input type="password" id="password" placeholder="Enter your password">
+    <button id="loginBtn">Login</button>
+
+    <div id="loginError"></div>
+
+    <div class="links">
+        <a href="mailto:example@gmail.com">📧 Email</a>
+        <a href="https://github.com/" target="_blank"> GitHub</a>
+    </div>
+</div>
+
+<script>
+    const users = [
+        { email: "rahul@123.gmail.com", password: "Rahul@123" },
+        { email: "Ravi@123.gmail.com", password: "Ravi@123" },
+        { email: "pranjal@123.gmail.com", password: "Pranjal@123" }
+    ];
+
+    const loginBtn = document.getElementById('loginBtn');
+    const loginError = document.getElementById('loginError');
+
+    loginBtn.addEventListener('click', () => {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const user = users.find(u => u.email === email && u.password === password);
+        if(user){
+            localStorage.setItem("loggedUser", email);
+            window.location.href = "dashboard.html";
+        } else {
+            loginError.innerText = " Invalid email or password!";
+        }
+    });
+
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let waves = [];
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        waves = [
+            {y: height/2, amp: 40, speed: 0.02, color: 'rgba(37,117,252,0.4)', phase: 0},
+            {y: height/2 + 20, amp: 60, speed: 0.015, color: 'rgba(106,17,203,0.4)', phase: 0.5},
+        ];
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function draw() {
+        ctx.clearRect(0,0,width,height);
+        waves.forEach(w => {
+            ctx.beginPath();
+            for(let x=0;x<width;x++){
+                let y = w.y + Math.sin(x*0.02 + w.phase) * w.amp;
+                ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = w.color;
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            w.phase += w.speed;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+</script>
+</body>
+</html>

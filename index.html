@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Path Finder Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login">
+
+<div id="loginContainer">
+    <h1>🔎 Path Finder Login</h1>
+
+    <!-- Login Form -->
+    <input type="email" id="email" placeholder="Enter your email">
+    <input type="password" id="password" placeholder="Enter your password">
+    <button id="loginBtn">Login</button>
+
+    <!-- Error Message -->
+    <div id="loginError"></div>
+
+    <!-- Email & GitHub links -->
+    <div class="links">
+        <a href="mailto:example@gmail.com" title="Email">📧 Email</a>
+        <a href="https://github.com/" target="_blank" title="GitHub">🐙 GitHub</a>
+    </div>
+</div>
+
+<script>
+    // ✅ Predefined users list (3 users)
+    const users = [
+        { email: "rahul@123.gmail.com", password: "Rahul@123" },
+        { email: "Ravi@123.gmail.com", password: "Ravi@123" },
+        { email: "pranjal@123.gmail.com", password: "Pranjal@123" }
+    ];
+
+    const loginBtn = document.getElementById('loginBtn');
+    const loginError = document.getElementById('loginError');
+
+    loginBtn.addEventListener('click', () => {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        const user = users.find(u => u.email === email && u.password === password);
+        if(user){
+            // ✅ Login successful → redirect to dashboard
+            window.location.href = "dashboard.html";
+        } else {
+            loginError.innerText = "❌ Invalid email or password!";
+        }
+    });
+</script>
+</body>
+</html>

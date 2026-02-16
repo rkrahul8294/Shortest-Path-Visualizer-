@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Path Finder Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body class="dashboard">
+
+    <!-- Header -->
+    <div class="header">
+        <h2>🔎 Path Finder Dashboard</h2>
+        <div class="user">
+            Welcome, Rahul! &nbsp;
+            <a href="mailto:Rahul.kumar.325893@gmail.com" title="Email Rahul">📧</a>
+            <a href="https://github.com/rahulkumar325893" target="_blank" title="GitHub">🐙</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="graphApp">
+
+        <!-- Algorithm Controls -->
+        <div class="card">
+            <h3>⚡ Run Algorithm</h3>
+            <div class="controls">
+                Start: <select id="start"></select>
+                End: <select id="end"></select>
+                Algorithm: 
+                <select id="algo">
+                    <option value="dijkstra">Dijkstra</option>
+                    <option value="bfs">BFS</option>
+                    <option value="dfs">DFS</option>
+                </select>
+                <button class="primary" id="runBtn">Find Path</button>
+                <button class="secondary" id="resetBtn">Reset Graph</button>
+            </div>
+        </div>
+
+        <!-- Graph Builder -->
+        <div class="card">
+            <h3>🛠 Build Graph</h3>
+            <div class="controls">
+                Add Node: <input type="text" id="newNode" placeholder="Name"/>
+                <button class="primary" id="addNodeBtn">Add Node</button>
+            </div>
+            <div class="controls">
+                Add Edge: From <input type="text" id="edgeFrom" placeholder="A"/> 
+                To <input type="text" id="edgeTo" placeholder="B"/> 
+                Weight <input type="number" id="edgeWeight" placeholder="1" min="1"/>
+                <button class="primary" id="addEdgeBtn">Add Edge</button>
+            </div>
+        </div>
+
+        <!-- Result and Graph -->
+        <div id="result"></div>
+        <div id="mynetwork"></div>
+
+    </div>
+
+    <script src="graph.js"></script>
+</body>
+</html>
