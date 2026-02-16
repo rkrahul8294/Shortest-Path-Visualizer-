@@ -59,5 +59,16 @@ This project is created for learning and demonstration purposes to understand gr
 ## 📄 License
 
 This project is for educational use.
+**
+## Login
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/15602531-0047-4cc2-8444-ad441f8fa553" />
+
+
+## dashboard.html**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bb66dde7-e5a3-4d1c-a71b-1cefe77ffde1" />
+
+
+
+
 
 
